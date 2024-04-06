@@ -344,6 +344,22 @@ $ git commit -m "add 3 files."
 
 显示无法读取到远程仓库，这是因为没有使用SSH秘钥，需要对Github配置SSH秘钥连接。
 
+​	1.打开终端；
+
+​	2.输入命令生成密钥`ssh-keygen -t rsa`
+
+​	3.输入您要保存密钥文件的路径和名称，或者直接敲击回车键选择默认值，例如：/home/YourName/.ssh/id_rsa；
+
+​	4.在弹出的窗口中输入密码，或者直接敲击回车键选择不设置密码；
+
+​	5.会得到一个公共密钥（id_rsa.pub）和一个私有密钥（id_rsa）
+
+​	这时已经成功地生成了 SSH 密钥对。公钥是要提供给远程服务器的，私钥则要保留在本地，并加以保护。另外，如果您想要让 SSH 代理管理您的密钥，您还需要在本地配置 SSH 代理。
+
+​	Github添加SSH秘钥，找到settings，SSH and GPG keys
+
+![image-20240406190742881](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240406190742881.png)
+
 ## 四.Git分支管理
 
 ### 1.分支管理
