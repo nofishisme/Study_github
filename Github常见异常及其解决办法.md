@@ -6,7 +6,7 @@ error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
 fatal: the remote end hung up unexpectedly
 fatal: the remote end hung up unexpectedly
 
-![image-20240405171637223](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240405171637223.png)，
+![image-20240405171637223](assets/image-20240405171637223.png)，
 
 将文件推送到远程仓库，提示`RPC failed; HTTP 400 curl 22 The requested URL returned error: 400`，有以下几种可能：
 

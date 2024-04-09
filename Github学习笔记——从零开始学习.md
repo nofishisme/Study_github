@@ -24,7 +24,7 @@
 
 ​	这里只说Linux系统的使用，在Ubuntu Linux系统，使用`git`命令就能查看系统是否安装Git：
 
-![image-20240326010830274](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326010830274.png)
+![image-20240326010830274](assets/image-20240326010830274.png)
 
 如果没有安装Git，使用`sudo apt-get install git`命令进行安装。
 
@@ -41,7 +41,7 @@
 
 ​	通过`git init`命令把目录变成Git管理的仓库。
 
-![image-20240326011606475](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326011606475.png)
+![image-20240326011606475](assets/image-20240326011606475-1712646327204-3.png)
 
 这个.git里面的文件不要随意修改。请谨慎的在现有文件加上创建Git仓库，以免造成不必要的麻烦。
 
@@ -72,13 +72,13 @@ $ git commit -m "add 3 files."
 
 ​	使用`git status`命令可以查看当前状态
 
-![image-20240326014147928](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326014147928.png)
+![image-20240326014147928](assets/image-20240326014147928.png)
 
 ​	修改文件后，使用`git diff`命令可以查看对比文件修改前后的差别：
 
 ​	`$ git diff readme.txt`
 
-![image-20240326014432507](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326014432507.png)
+![image-20240326014432507](assets/image-20240326014432507.png)
 
 ​	然后再使用add和commit命令可对修改后的内容进行提交
 
@@ -88,13 +88,13 @@ $ git commit -m "add 3 files."
 
 ​	`$ git log`
 
-![image-20240326014751283](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326014751283.png)
+![image-20240326014751283](assets/image-20240326014751283.png)
 
 ​	在命令后面加上`--pretty=oneline`参数可以减少信息量：
 
 ​	`$ git log --pretty=oneline`
 
-![image-20240326015010723](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326015010723.png)
+![image-20240326015010723](assets/image-20240326015010723.png)
 
 ​	在Git中使用`HEAD`表示当前版本，上一个版本是`HEAD^`，上上一个版本是`HEAD^^`，当版本数目过多时，比如前100个版本就是`HEAD~100`。
 
@@ -102,17 +102,17 @@ $ git commit -m "add 3 files."
 
 ​	`$ git reset --hard HEAD^`
 
-![image-20240326015434060](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326015434060.png)
+![image-20240326015434060](assets/image-20240326015434060.png)
 
 查看readme.txt内容，版本确实会被还原。
 
-![image-20240326015605816](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326015605816.png)
+![image-20240326015605816](assets/image-20240326015605816.png)
 
 ​	此时查看版本历史
 
 ​	`$ git log`
 
-​	![image-20240326015719225](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326015719225.png)
+​	![image-20240326015719225](assets/image-20240326015719225.png)
 
 之前的最新版本已经没有了。
 
@@ -120,17 +120,17 @@ $ git commit -m "add 3 files."
 
 ​	`$ git reset --hard 8ad2d`
 
-![image-20240326015944370](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326015944370.png)
+![image-20240326015944370](assets/image-20240326015944370.png)
 
 查看readme.txt内容，版本确实又回到了最新
 
-![image-20240326020038869](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326020038869.png)
+![image-20240326020038869](assets/image-20240326020038869.png)
 
 ​	最后使用`git reflog`可以记录每一次的命令，即使电脑关电，也能查看之前的版本号
 
 ​	`$ git reflog`
 
-![image-20240326020330095](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326020330095.png)
+![image-20240326020330095](assets/image-20240326020330095.png)
 
 然后根据版本号进行指定的版本回退。
 
@@ -140,43 +140,43 @@ $ git commit -m "add 3 files."
 
 ​	版本库：工作区的隐藏目录`.git`，这个文件夹是Git的版本库。暂存区就是在版本库里面，称为stage（index），本测试用系统Git暂存区实际是index。还有一个自动创建的第一个分支`master`，还有指向`master`的指针叫做`HEAD`。
 
-![image-20240326185145666](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326185145666.png)
+![image-20240326185145666](assets/image-20240326185145666.png)
 
 ​	Git中将文件像Git版本库添加时，分两步执行：第一步使用`git add`将文件修改添加到暂存区；第二步使用`git commit`提交更改，实际就是把暂存区的所以内容提交到当前分支。总的来说，就是把需要提交的文件修改通通放大暂存区，然后一次性提交暂存区的所有修改。
 
 ​	修改readme.txt和添加LICENSE文件后，使用`git status`查看状态：
 
-![image-20240326185328952](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326185328952.png)
+![image-20240326185328952](assets/image-20240326185328952.png)
 
 ​	使用`git add`添加到暂存区：
 
 ​	`$ git add readme.txt LICENSE`
 
-![image-20240326185420310](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326185420310.png)
+![image-20240326185420310](assets/image-20240326185420310.png)
 
 ​	使用vim 编辑器查看index文件`vim index`可以看到暂存区内容：
 
-![image-20240326185623463](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326185623463.png)
+![image-20240326185623463](assets/image-20240326185623463.png)
 
 ​	HEAD内容为：
 
-![image-20240326185714299](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326185714299.png)
+![image-20240326185714299](assets/image-20240326185714299.png)
 
 ​	执行`git commit`命令可以把暂存区所有修改提交到分支master：
 
 ​	`$ git commit -m "understand how stage works"`
 
-![image-20240326190141435](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326190141435.png)
+![image-20240326190141435](assets/image-20240326190141435.png)
 
 ​	此时再查看工作区状态，工作区变得很干净：
 
 ​	`git status`
 
-![image-20240326190315704](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326190315704.png)
+![image-20240326190315704](assets/image-20240326190315704.png)
 
 ​	再查看暂存区index里面的内容，发现没有stage相关的任何内容：
 
-![image-20240326190428171](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326190428171.png)
+![image-20240326190428171](assets/image-20240326190428171.png)
 
 
 
@@ -186,7 +186,7 @@ $ git commit -m "add 3 files."
 
 ​	进行实验，继续对readme.txt进行修改，增加一行内容`Git tracks changes.`：
 
-![image-20240326191108016](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326191108016.png)
+![image-20240326191108016](assets/image-20240326191108016.png)
 
 ​	进行添加：
 
@@ -194,21 +194,21 @@ $ git commit -m "add 3 files."
 
 ​	`$ gut status`
 
-![image-20240326191809750](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326191809750.png)
+![image-20240326191809750](assets/image-20240326191809750.png)
 
 ​	继续修改readme.txt，增加·`of files.`：
 
-![image-20240326192009764](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326192009764.png)
+![image-20240326192009764](assets/image-20240326192009764.png)
 
 ​	直接提交：
 
 ​	`$ git commit -m "git tracks changes"`
 
-![image-20240326192643506](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326192643506.png)
+![image-20240326192643506](assets/image-20240326192643506.png)
 
 ​	查看状态：
 
-![image-20240326220604915](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326220604915.png)
+![image-20240326220604915](assets/image-20240326220604915.png)
 
 可以看到，第二次的修改其实是没有被提交的，这是因为第二次的修改并没有使用`git add`命令，只有第一次的修改使用了该命令，修改被放入暂存区，准备提交，第二次修改没有放入暂存区，没有被提交，`git commit`只负责把暂存区的修改进行提交。
 
@@ -216,17 +216,17 @@ $ git commit -m "add 3 files."
 
 ​	对readme.txt进行修改，加入一个错误行，内容为`My stupid boss still prefers SVN`
 
-![image-20240326221514267](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326221514267.png)
+![image-20240326221514267](assets/image-20240326221514267.png)
 
 ​	查看使用`git status`
 
-![image-20240326221722973](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326221722973.png)
+![image-20240326221722973](assets/image-20240326221722973.png)
 
 ​	使用`git checkout -- file`可以丢弃工作区的修改，即把file文件在工作区的修改全部撤销。注意，该撤销只能撤销回到最近一次`git commit`或者`git add`时的状态
 
 ​	`git checkout -- readme.txt`
 
-![image-20240326222155921](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326222155921.png)
+![image-20240326222155921](assets/image-20240326222155921.png)
 
 ​	
 
@@ -244,11 +244,11 @@ $ git commit -m "add 3 files."
 
 ​	`$ git rm test.txt`
 
-![image-20240326224626224](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326224626224.png)
+![image-20240326224626224](assets/image-20240326224626224.png)
 
 ​	`$ git commit -m "remove test.txt"`
 
-![image-20240326224820764](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240326224820764.png)
+![image-20240326224820764](assets/image-20240326224820764.png)
 
 ​	另一种是删除错了，需要对误删除的文件进行恢复到最新版本
 
@@ -264,41 +264,41 @@ $ git commit -m "add 3 files."
 
 ​	想要创建远程仓库，首先需要登录Github，使用Creat a new repository，创建一个新仓库。
 
-![image-20240329161257584](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329161257584.png)
+![image-20240329161257584](assets/image-20240329161257584.png)
 
 创建好的新仓库后，会提示使用这个仓库克隆新的仓库，或者把已有的本地仓库和它相关联，之后把本地仓库内容推送到Github。
 
-![image-20240329162129516](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329162129516.png)
+![image-20240329162129516](assets/image-20240329162129516.png)
 
 ​	使用`git remote add origin git@github.com:nofishisme/learngit.git` 添加远程仓库，将本地仓库和远程仓库关联，远程仓库名字默认是`origin`，可以进行修改，但是一般不建议。
 
 ​	然后使用`git push -u origin master`将本地库的内容推送到远程库上面去。最新2024年3/29进行操作，出现了错误，存在以下提示：
 
-![image-20240329170140417](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329170140417.png)
+![image-20240329170140417](assets/image-20240329170140417.png)
 
 可以使用https的方式解决，将.git/config里面url后的内容改成https的形式。
 
-![image-20240329170530194](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329170530194.png)
+![image-20240329170530194](assets/image-20240329170530194.png)
 
 改成
 
-![image-20240329170609688](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329170609688.png)
+![image-20240329170609688](assets/image-20240329170609688.png)
 
 改完之后直接使用`git push -u origin master`会提示输入账号密码，但是最后又报错说该方式已经无法使用，需要继续更换方式。
 
-![image-20240329171202848](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329171202848.png)
+![image-20240329171202848](assets/image-20240329171202848.png)
 
 ​	解决办法使用生成令牌token，具体教程参考[【突发】解决remote: Support for password authentication was removed on August 13, 2021. Please use a perso-CSDN博客](https://blog.csdn.net/yjw123456/article/details/119696726)，其核心就是将生成的令牌号与之前url 后的链接相结合，url后的链接变为`https://<your_token>@github.com/<USERNAME>/<REPO>.git`，其中<your_token>用令牌码替换，<USERNAME>使用用户名替换，<REPO>用项目名字替换，最终结果为如下：
 
-![image-20240329173012196](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329173012196.png)
+![image-20240409151326400](assets/image-20240409151326400.png)
 
 又出现问题，截图如下：
 
-![image-20240329174712928](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329174712928.png)
+![image-20240409151449288](assets/image-20240409151449288.png)
 
-解决办法是查看git是否使用代理。后发现是因为挂了梯子，代理出现了问题，关闭掉梯子后可正常提交。
+解决办法是查看git是否使用代理。后发现是因为挂了代理出现了问题，关闭掉代理后可正常提交。
 
-![image-20240329174831106](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329174831106.png)
+![image-20240329174831106](assets/image-20240329174831106.png)
 
 ​	终于，艰难操作之后，将本地库的内容推送到了远程，将本地库内容推送到远程，使用git push命令，实际上是把当前分支master推送到远程。
 
@@ -326,13 +326,13 @@ $ git commit -m "add 3 files."
 
 ​	新建一个仓库，取名为gitskills，勾选`Initialize this repository with a README`，Github就会自动创建一个README.md文件。
 
-![image-20240329223013705](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329223013705.png)
+![image-20240329223013705](assets/image-20240329223013705.png)
 
 ​	使用命名`git clone`克隆一个本地库
 
 ​	`$ git clone https://github.com/nofishisme/gitskills.git`
 
-![image-20240329223636385](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240329223636385.png)
+![image-20240329223636385](assets/image-20240329223636385.png)
 
 ​	<font color='red'>在这里使用命令`git clone git@github.com:nofishisme/gitskills.git`还是会报错，提示无法识别远程仓库，后续提供解决使用SSH的解决办法。</font>
 
@@ -340,7 +340,7 @@ $ git commit -m "add 3 files."
 
 ​	从一开始，使用SSH相关的命令，都会提示出错：
 
-![image-20240330163607318](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330163607318.png)
+![image-20240330163607318](assets/image-20240330163607318.png)
 
 显示无法读取到远程仓库，这是因为没有使用SSH秘钥，需要对Github配置SSH秘钥连接。
 
@@ -358,7 +358,7 @@ $ git commit -m "add 3 files."
 
 ​	Github添加SSH秘钥，找到settings，SSH and GPG keys
 
-![image-20240406190742881](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240406190742881.png)
+![image-20240406190742881](assets/image-20240406190742881.png)
 
 ## 四.Git分支管理
 
@@ -372,25 +372,25 @@ $ git commit -m "add 3 files."
 
 ​	`master`分支是一条线，Git用`master`指向最新的提交，再用`HEAD`指向`master`，就能确定当前分支，以及当前分支的提交点。
 
-![image-20240330210804245](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330210804245.png)
+![image-20240330210804245](assets/image-20240330210804245.png)
 
 ​	每一次提交，`master`分支都会向前移动一步，随着不断的提交，`master`分支会越来越长。
 
 ​	可以创建一个新的分支，取名叫`dev`，Git会新建一个指针叫`dev`，指向`master`相同的提交，再把`HEAD`指向`dev`，就表示当前分支在`dev`上。
 
-![image-20240330211003451](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330211003451.png)
+![image-20240330211003451](assets/image-20240330211003451.png)
 
 ​	新增了`dev`分支后，后续的工作区的修改就是针对`dev`分支了，每产生一次新的提交，`dev`指针就往前移动一步，但是`master`指针不变。
 
-![image-20240330211301479](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330211301479.png)
+![image-20240330211301479](assets/image-20240330211301479.png)
 
 ​	合并分支最简单的方法就是直接把`master`指向`dev`的当前提交，就能完成合并。
 
-![image-20240330211538039](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330211538039.png)
+![image-20240330211538039](assets/image-20240330211538039.png)
 
 ​	合并完成之后，也可以直接删除`dev`分支，删掉后就剩下`master`一条分支。
 
-![image-20240330211723712](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330211723712.png)
+![image-20240330211723712](assets/image-20240330211723712.png)
 
 ​	首先，创建`dev`分支并切换到`dev`分支，其中`-b`参数表示创建并切换：
 
@@ -402,35 +402,35 @@ $ git commit -m "add 3 files."
 
 ​	`$ git checkout dev`或者`$ git switch dev`
 
-![image-20240330212728803](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330212728803.png)
+![image-20240330212728803](assets/image-20240330212728803.png)
 
 可以换使用`git branch`命令查看当前分支
 
 ​	`$ git branch`
 
-![image-20240330213110302](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330213110302.png)
+![image-20240330213110302](assets/image-20240330213110302.png)
 
 可以看见，当前分支就是`dev`，前面会加上`*`号。
 
 ​	在`dev`分支上对`readme.txt`进行修改，新增一行`Creating a new branch is quick.`，并进行提交。
 
-![image-20240330213403992](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330213403992.png)
+![image-20240330213403992](assets/image-20240330213403992.png)
 
 完成`dev`分支工作后，使用命令`git checkout master`切回主分支。
 
-![image-20240330213549904](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330213549904.png)
+![image-20240330213549904](assets/image-20240330213549904.png)
 
 切换为主分支后发现`readme.txt`里面并没有新添加的内容，这是因为那个提交在分支`dev`上，但是`master`分支没有变。
 
-![image-20240330213808972](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330213808972.png)
+![image-20240330213808972](assets/image-20240330213808972.png)
 
-![image-20240330213941825](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330213941825.png)
+![image-20240330213941825](assets/image-20240330213941825.png)
 
 ​	使用命令`git merge dev`可以将`dev`分支的工作成果合并到当前的`master`分支上。
 
 ​	`$ git merge dev`
 
-![image-20240330214222923](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330214222923.png)
+![image-20240330214222923](assets/image-20240330214222923.png)
 
 ​	注意提示中的`Fast-forward`，其表示这次合并是“快进模式”，直接把`master`指针指向`dev`的当前提交，所以合并速度非常快。
 
@@ -438,7 +438,7 @@ $ git commit -m "add 3 files."
 
 ​	`$ git branch -d dev`
 
-![image-20240330214626426](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330214626426.png)
+![image-20240330214626426](assets/image-20240330214626426.png)
 
 ​	使用branch很快，也很安全，所以提倡使用分支来完成某个任务。
 
@@ -446,7 +446,7 @@ $ git commit -m "add 3 files."
 
 ​	`git --version`
 
-![image-20240330221434777](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330221434777.png)
+![image-20240330221434777](assets/image-20240330221434777.png)
 
 ​	可以使用命令将git版本升级，无论是否安装git，都可以使用以下命令安装最新版本的git。
 
@@ -456,53 +456,53 @@ $ git commit -m "add 3 files."
 
 ​	`$ sudo apt install git`
 
-![image-20240330222225349](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330222225349.png)
+![image-20240330222225349](assets/image-20240330222225349.png)
 
 ### 3.分支冲突解决
 
 ​	新建一个分支，进行冲冲突测试，创建一个分支`feature1`，并切换到分支，修改`readme.txt`内容，最后一行添加`Creating a new branch is quick AND simple.`，并在分支`feature1`上进行提交，再切换会`master`分支，会提示当前的`master`分支比远程的`master`分支要超前一个提交。
 
-![image-20240330222801601](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330222801601.png)
+![image-20240330222801601](assets/image-20240330222801601.png)
 
 同时修改`master`分子里面的`readme.txt`文件，最后一行添加`Creating a new branch is quick & simple.`。可以看到，`master`分支里面添加的内容和`feature1`分支里面添加内容不一致，也将`master`分支内容提交。
 
-![image-20240330223643971](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330223643971.png)
+![image-20240330223643971](assets/image-20240330223643971.png)
 
 于是`master`分支和`feature1`分支都有了自己新的提交：
 
-![image-20240330223944465](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330223944465.png)
+![image-20240330223944465](assets/image-20240330223944465.png)
 
 ​	在这种情况下，Git无法执行快速合并，只能尝试将各自修改合并，但是可能产生冲突。
 
-![image-20240330224139469](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330224139469.png)
+![image-20240330224139469](assets/image-20240330224139469.png)
 
 ​	合并产生冲突，必须要解决冲突之后才能提交。
 
-![image-20240330224238595](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330224238595.png)
+![image-20240330224238595](assets/image-20240330224238595.png)
 
 ​	可以直接查看待修改文件的内容进行修正，这里是`readme.txt`文件：
 
-![image-20240330224441136](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330224441136.png)
+![image-20240330224441136](assets/image-20240330224441136.png)
 
 ​	`<<<<<<<`，`=======`，`>>>>>>>`表示不同分支的内容。可以直接手动修改内容，然后提交，这里修改为
 
 `Creating a new branch is quick and simple`，合并的情况如下：
 
-![image-20240330224822991](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330224822991.png)
+![image-20240330224822991](assets/image-20240330224822991.png)
 
-![image-20240330224921848](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330224921848.png)
+![image-20240330224921848](assets/image-20240330224921848.png)
 
 ​	使用带参数的命令`git log`可以查看分支合并情况。
 
 ​	`$ git log --graph --pretty=oneline --abbrev-commit`
 
-![image-20240330225225751](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330225225751.png)
+![image-20240330225225751](assets/image-20240330225225751.png)
 
 ​	最后，再删除`feature1`分支。
 
 ​	`$ git branch -d feature1`
 
-![image-20240330225401642](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240330225401642.png)
+![image-20240330225401642](assets/image-20240330225401642.png)
 
 ### 4.分支管理策略
 
@@ -512,7 +512,7 @@ $ git commit -m "add 3 files."
 
 ​	创建新的分支`dev`并且切换到分支`dev`，在分支`dev`修改`readme.txt`的内容然后进行提交，在切换会主`master`分支。
 
-![image-20240331113854165](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240331113854165.png)
+![image-20240331113854165](assets/image-20240331113854165.png)
 
 这里提示分支领先‘origin/master’共四个提交时因为本地仓库没有提交更新到远程仓库。
 
@@ -520,7 +520,7 @@ $ git commit -m "add 3 files."
 
 ​	`$ git merge --no-ff -m "merge with no-ff" dev`
 
-![image-20240331114257986](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240331114257986.png)
+![image-20240331114257986](assets/image-20240331114257986.png)
 
 本次合并要创建一个新的`commit`，所以要加上`-m`参数，把`commit`的描述写进去。
 
@@ -528,7 +528,7 @@ $ git commit -m "add 3 files."
 
 ​	`$ git log --graph --pretty=oneline --abbrev-commit`
 
-![image-20240331115907594](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240331115907594.png)
+![image-20240331115907594](assets/image-20240331115907594.png)
 
 ​	`fast forward`模式的合并看不出曾经有合并，而加上`--no-ff`参数后就可以用普通模式合并，能看到历史分支。
 
@@ -538,7 +538,7 @@ $ git commit -m "add 3 files."
 
 ​	当遇到bug需要处理，但是当前工作区任务却并没有完成，则可以使用`git stash`命令可以将当前工作现场”储藏“起来，等后面恢复现场后继续工作，然后再创建分支进行bug处理。需要再哪个分支进行bug处理，就要在哪个分支创建上创建临时分支。
 
-![image-20240331232650035](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240331232650035.png)
+![image-20240331232650035](assets/image-20240331232650035.png)
 
 ​	使用命令`git stash list`可以查看被保存的工作现场，可以使用两种方法进行恢复。一是使用命令`git stash apply`进行恢复，恢复后stash内容并不会删除，需要使用`git stash drop`来删除。二是使用命令`git stash pop`，恢复的同时把stash内容也删除了。
 
@@ -548,7 +548,7 @@ $ git commit -m "add 3 files."
 
 ​	更简单的操作二是把`b196443 fix bug 101`这个提交所做的修改“复制”到`dev`分支，使用命令`git cherry-pick`可以复制一个特定的提交到当前分支。
 
-![image-20240331233022179](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240331233022179.png)
+![image-20240331233022179](assets/image-20240331233022179.png)
 
 ​	可以看到这里的提交就是分支`dev 2e26da0`，虽然两个提交改动相同，但是实际是和master不同的分支。
 
